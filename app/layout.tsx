@@ -6,6 +6,8 @@ import Navbar from "@/components/self/Navbar";
 
 import { Toaster } from "@/components/ui/toaster";
 import Footer from "@/components/self/Footer";
+import Adsense from "@/components/Adsense";
+import GA from "@/components/GA";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -89,6 +91,8 @@ export default function RootLayout({
             <Footer />
           </div>
         </ThemeProvider>
+        <GA GA_MEASUREMENT_ID="G-FLBDVF3702" />
+        <Adsense />
       </body>
     </html>
   );
