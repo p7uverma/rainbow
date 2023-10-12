@@ -1,8 +1,7 @@
+"use client";
+
 import Image from "next/image";
-import { Button } from "../ui/button";
 import Link from "next/link";
-import { BsGithub } from "react-icons/bs";
-import { GrMenu } from "react-icons/gr";
 import { ThemeModeSwitch } from "./theme-switch";
 
 export default function Navbar({}): any {

@@ -4,7 +4,6 @@ import { Inter } from "next/font/google";
 import { ThemeProvider } from "@/providers/theme-provider";
 import Navbar from "@/components/self/Navbar";
 
-import Favicon from "/public/images/Metadata/favicon.ico";
 import { Toaster } from "@/components/ui/toaster";
 import Footer from "@/components/self/Footer";
 
@@ -15,20 +14,17 @@ export const metadata: Metadata = {
     template: "%s | Rainbow",
     default: "Rainbow - File Converter", // a default is required when creating a template
   },
+
   description:
     "Unleash your creativity with Rainbow – the ultimate online tool for unlimited and free multimedia conversion. Transform images, audio, and videos effortlessly, without restrictions. Start converting now and elevate your content like never before!",
-  icons: [{ rel: "icon", url: Favicon.src }],
+  icons: [{ rel: "icon", url: "/images/Metadata/favicon.ico" }],
   generator: "Next.js",
   applicationName: "Rainbow",
   authors: [{ name: "Priyanshu Verma", url: "https://p7u.tech" }],
   colorScheme: "dark",
   creator: "Priyanshu Verma",
   publisher: "Priyanshu Verma",
-  formatDetection: {
-    email: false,
-    address: false,
-    telephone: false,
-  },
+  metadataBase: new URL("https://rainbow.p7u.tech"),
   openGraph: {
     title: "Rainbow - File Converter",
     description:
@@ -85,18 +81,13 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          enableColorScheme
-        >
+        <Toaster />
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <Navbar />
           <div className="flex flex-col min-h-screen">
             <div className="flex-grow pb-10 pt-24">{children}</div>
             <Footer />
           </div>
-          <Toaster />
         </ThemeProvider>
       </body>
     </html>

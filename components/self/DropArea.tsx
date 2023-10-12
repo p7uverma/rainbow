@@ -29,11 +29,47 @@ import {
 } from "../ui/select";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../ui/tabs";
 
-import { accepted_files, extensions } from "@/lib/utils";
 import { Badge } from "../ui/badge";
 import { BiError } from "react-icons/bi";
 
+const extensions = {
+  image: [
+    "jpg",
+    "jpeg",
+    "png",
+    "gif",
+    "bmp",
+    "webp",
+    "ico",
+    "tif",
+    "tiff",
+    "svg",
+    "raw",
+    "tga",
+  ],
+  video: [
+    "mp4",
+    "m4v",
+    "mp4v",
+    "3gp",
+    "3g2",
+    "avi",
+    "mov",
+    "wmv",
+    "mkv",
+    "flv",
+    "ogv",
+    "webm",
+    "h264",
+    "264",
+    "hevc",
+    "265",
+  ],
+  audio: ["mp3", "wav", "ogg", "aac", "wma", "flac", "m4a"],
+};
+
 export default function Dropzone() {
+  // variables & hooks
   const { toast } = useToast();
   const [is_hover, setIsHover] = useState<boolean>(false);
   const [actions, setActions] = useState<Action[]>([]);
@@ -42,20 +78,28 @@ export default function Dropzone() {
   const [is_loaded, setIsLoaded] = useState<boolean>(false);
   const [is_converting, setIsConverting] = useState<boolean>(false);
   const [is_done, setIsDone] = useState<boolean>(false);
-
+  const ffmpegRef = useRef<any>(null);
   const [defaultValues, setDefaultValues] = useState<string>("video");
   const [selcted, setSelected] = useState<string>("...");
-
-  const ffmpegRef = useRef<any>(null);
-
-  const checkIsReady = (): void => {
-    let tmp_is_ready = true;
-    actions.forEach((action: Action) => {
-      if (!action.to) tmp_is_ready = false;
-    });
-    setIsReady(tmp_is_ready);
+  const accepted_files = {
+    "image/*": [
+      ".jpg",
+      ".jpeg",
+      ".png",
+      ".gif",
+      ".bmp",
+      ".webp",
+      ".ico",
+      ".tif",
+      ".tiff",
+      ".raw",
+      ".tga",
+    ],
+    "audio/*": [],
+    "video/*": [],
   };
 
+  // functions
   const reset = () => {
     setIsDone(false);
     setActions([]);
@@ -157,7 +201,13 @@ export default function Dropzone() {
       })
     );
   };
-
+  const checkIsReady = (): void => {
+    let tmp_is_ready = true;
+    actions.forEach((action: Action) => {
+      if (!action.to) tmp_is_ready = false;
+    });
+    setIsReady(tmp_is_ready);
+  };
   const deleteAction = (action: Action): void => {
     setActions(actions.filter((elt) => elt !== action));
     setFiles(files.filter((elt) => elt.name !== action.file_name));
@@ -180,6 +230,7 @@ export default function Dropzone() {
   };
 
   // returns
+
   if (actions.length) {
     return (
       <div className="space-y-6">

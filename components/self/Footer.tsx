@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import React from "react";
 import { buttonVariants } from "../ui/button";
@@ -33,7 +35,7 @@ const Footer = () => {
         </div>
         <div>
           <p>
-            &copy; {new Date().getFullYear()}{" "}
+            &copy; 2023{" "}
             <Link
               href={"https://p7u.tech"}
               className={cn(buttonVariants({ variant: "link" }), "px-0 mr-1")}

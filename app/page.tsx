@@ -1,3 +1,5 @@
+"use client";
+
 import Dropzone from "@/components/self/DropArea";
 
 export default function Home() {
