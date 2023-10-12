@@ -48,6 +48,14 @@ export default function Dropzone() {
 
   const ffmpegRef = useRef<any>(null);
 
+  const checkIsReady = (): void => {
+    let tmp_is_ready = true;
+    actions.forEach((action: Action) => {
+      if (!action.to) tmp_is_ready = false;
+    });
+    setIsReady(tmp_is_ready);
+  };
+
   const reset = () => {
     setIsDone(false);
     setActions([]);
@@ -149,13 +157,7 @@ export default function Dropzone() {
       })
     );
   };
-  const checkIsReady = (): void => {
-    let tmp_is_ready = true;
-    actions.forEach((action: Action) => {
-      if (!action.to) tmp_is_ready = false;
-    });
-    setIsReady(tmp_is_ready);
-  };
+
   const deleteAction = (action: Action): void => {
     setActions(actions.filter((elt) => elt !== action));
     setFiles(files.filter((elt) => elt.name !== action.file_name));
