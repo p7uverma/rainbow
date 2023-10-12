@@ -26,12 +26,12 @@ export const metadata: Metadata = {
   colorScheme: "dark",
   creator: "Priyanshu Verma",
   publisher: "Priyanshu Verma",
-  metadataBase: new URL("https://rainbow.p7u.tech"),
+  metadataBase: new URL("https://rainbow-converter.vercel.app"),
   openGraph: {
     title: "Rainbow - File Converter",
     description:
       "Unleash your creativity with Rainbow – the ultimate online tool for unlimited and free multimedia conversion. Transform images, audio, and videos effortlessly, without restrictions. Start converting now and elevate your content like never before!",
-    url: "https://rainbow.p7u.tech",
+    url: "https://rainbow-converter.vercel.app",
     siteName: "Rainbow",
     images: "/logo.png",
     locale: "en_US",
@@ -61,16 +61,13 @@ export const metadata: Metadata = {
     title: "Rainbow - File Converter",
     description:
       "Unleash your creativity with Rainbow – the ultimate online tool for unlimited and free multimedia conversion. Transform images, audio, and videos effortlessly, without restrictions. Start converting now and elevate your content like never before!",
-    images: ["https://rainbow.p7u.tech/logo.png"],
+    images: ["https://rainbow-converter.vercel.app/logo.png"],
   },
 
   verification: {
     google: "google",
     yandex: "yandex",
     yahoo: "yahoo",
-    other: {
-      me: ["my-email", "my-link"],
-    },
   },
   category: "technology",
 };
