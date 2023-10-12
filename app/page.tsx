@@ -1,9 +1,8 @@
 import Dropzone from "@/components/self/DropArea";
-import { ThemeModeSwitch } from "@/components/self/theme-switch";
 
 export default function Home() {
   return (
-    <div className="space-y-16 pt-24">
+    <div className="space-y-16">
       <div className="space-y-6">
         <h1 className="text-3xl md:text-5xl font-medium text-center font-mono">
           Free Unlimited File Converter -{" "}
