@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { ThemeProvider } from "@/providers/theme-provider";
 import Navbar from "@/components/self/Navbar";
-
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Toaster } from "@/components/ui/toaster";
 import Footer from "@/components/self/Footer";
 import Adsense from "@/components/Adsense";
@@ -90,6 +90,7 @@ export default function RootLayout({
         </ThemeProvider>
         <GA GA_MEASUREMENT_ID="G-FLBDVF3702" />
         <Adsense />
+        <SpeedInsights />
       </body>
     </html>
   );
